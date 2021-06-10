@@ -1,0 +1,52 @@
+<div class="container">
+    <h3 mat-dialog-title>Update Times For {{ data.value.dayOfTheWeek }}</h3>
+  
+    <form class="mat-dialog-content" #formControl="ngForm">
+
+      <div [formGroup]="form">
+        <label>Start Time</label>
+        <ngx-timepicker-field
+          [format]="12"
+          [controlOnly]="true"
+          formControlName="startTime"
+          
+          [(ngModel)]="data.value.startTime"
+          name="startTime">
+        </ngx-timepicker-field>
+      </div>
+
+      <div [formGroup]="form">
+        <label>End Time</label>
+        <ngx-timepicker-field
+          [format]="12"
+          [controlOnly]="true"
+          formControlName="endTime"
+          
+          [(ngModel)]="data.value.endTime"
+          name="endTime">
+        </ngx-timepicker-field>
+      </div>
+
+      <div [formGroup]="form">
+        <label>Lunch Length</label>
+        <ngx-timepicker-field
+          [format]="24"
+          [controlOnly]="true"
+          [min]="'00:00 am'"
+          [max]="'00:55 am'"
+          [defaultTime]="'00:40 am'"
+          formControlName="lunchLength"
+          
+          [(ngModel)]="data.value.lunchLength"
+          name="lunchLength">
+        </ngx-timepicker-field>
+      </div>
+      <!-- (timeChanged)="onTimeChange()" -->
+  
+      <div mat-dialog-actions class="actionButtons">
+        <button mat-raised-button color=primary [mat-dialog-close]="data">Save</button>
+        <button mat-raised-button color=warn (click)="onCancelClick()" tabindex="-1">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

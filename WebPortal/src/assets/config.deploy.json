@@ -1,0 +1,8 @@
+{
+  "env": {
+      "name": "#{Environment}#"
+  },
+  "apiServer": {
+      "url": "#{ApiURL}#"
+  }
+}

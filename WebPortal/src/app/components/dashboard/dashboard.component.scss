@@ -1,0 +1,14 @@
+mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+  }
+  
+  mat-card:hover{
+    opacity: .5;
+    cursor: pointer;
+  }
+  
+  mat-card-title {
+    text-align: center;
+  }
+  

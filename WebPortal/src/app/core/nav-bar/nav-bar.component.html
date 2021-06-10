@@ -1,0 +1,43 @@
+<mat-toolbar class="topbar" color="primary" style="-webkit-app-region: drag">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+    <mat-icon class="navBurger" (click)="sidenav.toggle()">dehaze</mat-icon>
+  </button>
+  <h2 id="pageTitle" class="pageTitle">{{ pageTitle }}</h2>
+  <mat-menu #appMenu="matMenu">
+    <button *ngFor="let theme of themes" (click)="setTheme(theme.name)" mat-menu-item href="">{{ theme.displayName }}<mat-icon *ngIf="colorSchemeService.currentActive() === theme.name">check</mat-icon></button>
+  </mat-menu>
+
+  <!-- Handles spacing for account and alert controls -->
+  <span class="iconSpacer"></span>
+
+  <div id="navEnd">
+    <mat-icon class="navEndButtons" matTooltip="Account Controls" [matMenuTriggerFor]="appMenu">account_box</mat-icon>
+  </div>
+
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav" #drawer [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-nav-list>
+      <mat-divider></mat-divider>
+      <app-page-link
+        id="homeNavLink"
+        class="sidenav-option"
+        pageName="Dashboard"
+        pageLink="/dashboard"
+        pageIcon="home"
+      ></app-page-link>
+      <app-page-link
+      id="timeNavLink"
+      class="sidenav-option"
+      pageName="Time Management"
+      pageLink="/timeManagement"
+      pageIcon="access_time"
+    ></app-page-link>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,21 @@
+.mat-list-item {
+  color:#000000;
+}
+
+.mat-list-item.active {
+  background-color: #ef273e;
+  color: white;
+}
+
+.mat-list-item:hover:not(.active) {
+  background-color: #ef273e;
+  color: white;
+}
+
+.customIcons {
+  padding-right: 10px;
+}
+
+.mat-list-item.active:not(.active) {
+  background-color: #ef273e;
+}

@@ -1,0 +1,67 @@
+<mat-form-field appearance="fill">
+  <mat-label>Please Select Week Commencing Date...</mat-label>
+  <input (dateChange)="weekCommenceSelect($event)" 
+  matInput 
+  [matDatepickerFilter]="myFilter" 
+  [max]="todayDate" 
+  [matDatepicker]="picker" 
+  readonly>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+</mat-form-field>
+  <div class="mat-elevation-z8 tablePaddingBottom">
+    <table id="timeManagementTable" mat-table [dataSource]="dataSource">
+      <!--day Of The Week Column -->
+      <ng-container matColumnDef="DayOfTheWeek">
+        <th id="dayTemplateIdHeader" mat-header-cell *matHeaderCellDef>Day Of The Week</th>
+        <td mat-cell *matCellDef="let day" class="column-25">{{ day.dayOfTheWeek }}</td>
+      </ng-container>
+  
+      <!-- Start Time Column -->
+      <ng-container matColumnDef="StartTime">
+        <th id="dayTemplateDisplayNameHeader" mat-header-cell *matHeaderCellDef>Start Time</th>
+        <td mat-cell *matCellDef="let day" class="column-25">{{ day.startTime }}</td>
+      </ng-container>
+  
+      <!-- End Time Column -->
+      <ng-container matColumnDef="EndTime">
+        <th id="dayTemplateDescriptionHeader" mat-header-cell *matHeaderCellDef> End Time </th>
+        <td mat-cell *matCellDef="let day" class="column-25">{{ day.endTime }}</td>
+      </ng-container>
+  
+      <!-- LunchLength Column -->
+      <ng-container matColumnDef="LunchLength">
+        <th id="dayTemplateDateCreatedHeader" mat-header-cell *matHeaderCellDef>Lunch Length</th>
+        <td mat-cell *matCellDef="let day" class="column-25">{{ day.lunchLength }}</td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="column-25">
+        </th>
+  
+        <td mat-cell *matCellDef="let row" class="column-25">
+          <button mat-icon-button color="primary" (click)="newDay(row)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="mat-row" routerLinkActive="active" mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <app-loading *ngIf="isLoading"></app-loading>
+
+
+  </div>
+  <span>
+    <div class="calculateButton"><button mat-raised-button [disabled]="isDisabled" (click)="calculate()">Calculate</button>
+      <button class="newButton" [disabled]="isDisabled" (click)="newWeek()" mat-raised-button>New Week</button>
+    <button class="saveButton" [disabled]="savingDisabled" (click)="saveWeek()" mat-raised-button>Save Week</button></div>
+    <p>Total Amount of Flexi: {{ endResults.totalAmountOfFlexi }} </p>
+    <p>Earliest you can leave: {{ endResults.earliestCanLeave }}</p>
+    <p>Can Get 4:47 PM Train?: <mat-checkbox [(ngModel)]="endResults.can447Train" [disabled]="true"></mat-checkbox></p>
+    <p>Can Get 3:47 PM Train?: <mat-checkbox [(ngModel)]="endResults.can347Train" [disabled]="true"></mat-checkbox></p> 
+    <p>Can Get 2:47 PM Train?: <mat-checkbox [(ngModel)]="endResults.can247Train" [disabled]="true"></mat-checkbox></p>
+  </span>

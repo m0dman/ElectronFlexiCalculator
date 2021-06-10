@@ -1,0 +1,89 @@
+$topBarColor: #005849;
+$sideNavColor: linear-gradient(
+  to top,
+  #95dbcc,
+  #8bd6c6,
+  #82d2c0,
+  #78cdba,
+  #6ec8b4,
+  #62bda9,
+  #56b19d,
+  #4aa692,
+  #3a927f,
+  #297e6c,
+  #176b5a,
+  #005849
+);
+$fontColor: #ffffff;
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: $fontColor;
+}
+
+.logo {
+  width: 97%;
+  padding-left: 2%;
+}
+
+.sidenav-container {
+  position: absolute;
+  top: 56px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.sidenav {
+  display: flex;
+  width: 160px;
+  // background: $sideNavColor;
+  overflow: hidden;
+}
+
+.mat-sidenav-content {
+  padding-top: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  height: calc(100% - 20px);
+}
+
+.iconSpacer {
+  flex: 1 1 auto;
+}
+
+.navBurger {
+  font-size: 30px;
+}
+
+// For right had nav controls - add button spacing
+.navEndButtons {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+// Controlling width to better control right had spacing on nav-bar
+.mat-icon-button {
+  width: auto;
+}
+
+.mat-toolbar-row {
+  padding: 0 10px;
+}
+
+::ng-deep.mat-menu-panel.notificationsmenu {
+  max-width: 490px !important;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+}
+
+.pageTitle {
+  margin-left: 2%;
+}
+
+.mat-list-base {
+  padding-top: 0px;
+}

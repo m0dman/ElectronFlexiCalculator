@@ -1,0 +1,81 @@
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     min-width: 550px;
+//     overflow: hidden;
+// }
+
+// .form {
+// display: flex;
+// padding-top: 6px;
+// }
+
+// .mat-dialog-content {
+// overflow: hidden;
+// }
+
+// .mat-form-field {
+// font-size: 16px;
+// flex-grow: 1;
+// }
+
+// .mat-checkbox{
+//     padding-top: 2%;
+//     margin-left: 10px;
+// }
+
+// .mat-button {
+//   margin-bottom: 18px;
+// }
+
+.mat-dialog-content {
+  max-height: 75vh;
+}
+
+.full-width {
+  width: 46%;
+  margin-right: 54%;
+}
+
+.half-width {
+  width: 46%;
+  margin-right: 20px;
+}
+
+.footnote {
+  color: gray;
+  font-style: italic;
+  margin: 0px 0px 30px 0px;
+}
+
+.actionButtons {
+  margin-bottom: 0px;
+
+  :focus {
+    background-color: grey;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .full-width {
+    width: 100%;
+    margin-right: 54%;
+  }
+
+  .half-width {
+    width: 100%;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 700px) {
+  .full-width {
+    width: 46%;
+    margin-right: 54%;
+  }
+
+  .half-width {
+    width: 46%;
+    margin-right: 20px;
+  }
+}

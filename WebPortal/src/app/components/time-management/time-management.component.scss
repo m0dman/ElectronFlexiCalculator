@@ -1,0 +1,39 @@
+.mat-form-field {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .column-10 {
+    width: 10%;
+  }
+
+  .column-20 {
+    width: 20%;
+  }
+
+  .tablePaddingBottom{
+    padding-bottom: 56px;
+  }
+  .calculateButton{
+    padding-top: 2%;
+  }
+
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #005847;
+  }
+  
+  ::ng-deep .mat-checkbox.mat-accent .mat-checkbox-frame {
+  border-color: #005847;
+}
+
+.saveButton {
+  left: 2%;
+}
+
+.newButton
+{
+  left: 1%;
+}
